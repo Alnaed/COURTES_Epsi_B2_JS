@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Leaflet</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="Leaflet/leaflet.css">
+	<script src="Leaflet/leaflet.js"></script>
+	<style type="text/css">
+	 #mapid { 
+     height: 600px;}
+	</style>
+</head>
+<body>
+	<p><button onclick="drawPopUp(48.85538,2.34502,'Sainte Chapelle')">Load Test</button></p>
+	<p><button onclick="loadOpenData()">Load OpenData</button>
+	<div id="mapid"></div>
+
+		<script type="text/javascript">
+		var map = L.map('mapid').setView([48.8577, 2.3476], 13);
+
+		L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    		attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+		}).addTo(map);
+
+ 		function drawPopUp(lon,lat,description)
+ 		{
+ 			L.marker([lon, lat]).addTo(map)
+ 			.bindPopup(description)
+ 			.openPopup();
+
+ 		}
+
+ 		function loadOpenData()
+ 		{
+ 			let xhttp = new XMLHttpRequest();
+ 			xhttp.onreadystatechange = function () {
+        	if (this.readyState == 4 && this.status == 200) {
+          		let datamarkers = JSON.parse(this.response);
+          		let i = 0;
+          		console.clear();
+        		console.log(datamarkers);
+          		for (i in datamarkers.records) {
+          			lon = datamarkers.records[i].geometry.coordinates[1];
+          			lat = datamarkers.records[i].geometry.coordinates[0];
+          			description = datamarkers.records[i].fields.adresse;
+          			drawPopUp(lon,lat,description)
+          		}
+        		}
+      		};
+
+ 			var markers = "https://opendata.paris.fr/api/records/1.0/search/?dataset=etablissements-scolaires&facet=id_projet&facet=arr_libelle&facet=arr_insee";
+ 			xhttp.open("GET", markers,true);
+ 			xhttp.send();
+ 		}
+
+
+
+
+		</script>
+
+
+</body>
+</html>
