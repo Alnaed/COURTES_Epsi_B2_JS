@@ -1,0 +1,18 @@
+{
+  "name": "node1",
+  "version": "1.0.0",
+  "description": "premiernode",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "COURTES Alexandre",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/Alnaed/COURTES_Epsi_B2_JS"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.6"
+  }
+}
