@@ -1,6 +1,7 @@
 var express = require('express')
 var app = express()
 
+
 var date = new Date();
 var stringDate = date.toDateString();
 var isoDate= date.toISOString();
@@ -12,7 +13,7 @@ var myLogger = function (req, res, next) {
 }
 
 app.use(myLogger)
-app.get('/', function (req, res) {
+app.get('/service', function (req, res) {
   res.send(datetotal)
 })
 app.listen(3000, function() {
