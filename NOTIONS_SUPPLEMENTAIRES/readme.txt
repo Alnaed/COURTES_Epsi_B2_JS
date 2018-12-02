@@ -1,0 +1,1 @@
+Ce dossier contient des fichiers relatifs aux web components: le support de l'expose au format powerpoint et la demo visualisable au travers du fichier 'demo_webcomp.html'
