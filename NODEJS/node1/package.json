@@ -2,7 +2,7 @@
   "name": "node1",
   "version": "1.0.0",
   "description": "premiernode",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,5 +14,8 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.6"
+  },
+  "dependencies": {
+    "socket.io": "^2.1.1"
   }
 }

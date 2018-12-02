@@ -4,6 +4,7 @@ var validator = require('validator');
 var bcrypt = require('bcryptjs');
 var session = require('express-session');
 var FileStore = require('session-file-store')(session);
+var graphic = require('d3');
 
 var app = express(); 
 storage.initSync(); //Initialisation Synchrone du stockage

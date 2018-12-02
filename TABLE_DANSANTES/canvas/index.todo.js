@@ -91,7 +91,6 @@ function drawTable() {
 
   }
 
-  var stepTable=1,,isAnimated=false;
 
 
 
